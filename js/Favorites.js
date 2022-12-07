@@ -21,7 +21,7 @@ export class Favorites {
     async add(username) {
         try {
 
-            const userExists = this.entries.find(entry => entry.login === username)
+            const userExists = this.entries.find(entry => entry.login.toLowerCase() === username.toLowerCase())
             
 
             if(userExists) {
@@ -52,6 +52,7 @@ export class Favorites {
 
         this.entries = filteredEntries
         this.update()
+        this.save()
     }
 }
 
